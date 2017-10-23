@@ -71,7 +71,7 @@ var joinTeam = (app) => {
         if(typeof recaptcha === undefined || recaptcha === '' || recaptcha === null) {
             return res.json({success: 2});
         }
-        var secretKey = "6LdfJjEUAAAAAH_zE-_WP4Khtq0lR9CPR4H5siwT";
+        var secretKey = "6LdfJjEUAAAAAF1fImzF9Mskry3BLc5JtOskwAXn";
         var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + recaptcha + "&remoteip=";
 
         request(verificationUrl,function(error,response,body) {
