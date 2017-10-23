@@ -23,7 +23,7 @@ var contactEmail = (app) => {
     if(typeof recaptcha === undefined || recaptcha === '' || recaptcha === null) {
       return res.json({success: 2});
     }
-    var secretKey = "6Ldj1BsUAAAAAGuUmnKRwHRHe41wkuE20oTk2676";
+    var secretKey = "6LdfJjEUAAAAAH_zE-_WP4Khtq0lR9CPR4H5siwT";
     var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
     request(verificationUrl,function(error,response,body) {
