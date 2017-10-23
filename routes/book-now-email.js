@@ -23,7 +23,7 @@ var bookEmail = (app) => {
     if(typeof recaptcha === undefined || recaptcha === '' || recaptcha === null) {
       return res.json({success: 2});
     }
-    var secretKey = "6LdfJjEUAAAAAH_zE-_WP4Khtq0lR9CPR4H5siwT";
+    var secretKey = "6LdfJjEUAAAAAF1fImzF9Mskry3BLc5JtOskwAXn";
     var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
     request(verificationUrl,function(error,response,body) {
@@ -36,7 +36,6 @@ var bookEmail = (app) => {
 
     var transporter = nodemailer.createTransport({transport: 'direct'});
     //var transporter = nodemailer.createTransport({direct: true, debug: true});
-    //var transporter = nodemailer.createTransport('smtps://chris@opmi-tx.com:f@ct0ry33@smtp.gmail.com');
     //let toEmail=req.body.to_email;
     let topic=req.body.topic;
     if(req.body.topic=='Other/Custom'){
@@ -44,7 +43,7 @@ var bookEmail = (app) => {
     }
 
     let messageBody = '<p>Dear Admin</p>' +
-      '<p>Client with following details has posted for booking on Women Wealth</p>' +
+      '<p>Client with following details has posted for booking on Wealth Woman</p>' +
       '<p>' +
       'Full Name: ' + req.body.firstName +' '+ req.body.lastName + '<br/>' +
       'Email: ' + req.body.email + '<br/>' +
@@ -57,7 +56,7 @@ var bookEmail = (app) => {
     var mailOptions = {
       from: "Webmaster <"+req.body.email+">", // sender address
       to: toEmail, // list of receivers
-      subject: "A new inquiry was posted on Women Wealth", // Subject line
+      subject: "A new inquiry was posted on Wealth Woman Website", // Subject line
       html: messageBody // html body
     };
 
